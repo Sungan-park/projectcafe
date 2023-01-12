@@ -11,7 +11,10 @@ import lombok.NoArgsConstructor;
 public class Cafe {
     Long id;
     String cname;
-    String cphoto;
+    String cphoto1;
+    String cphoto2;
+    String cphoto3;
+
     String cintro;
     String carea;
     String ctype;
@@ -19,6 +22,6 @@ public class Cafe {
     String cmenu;
 
     public CafeEntity toCafeEntity(){
-        return new CafeEntity(id,cname,cphoto,cintro,carea,ctype,cfilter,cmenu);
+        return new CafeEntity(id,cname,cphoto1,cphoto2,cphoto3,cintro,carea,ctype,cfilter,cmenu);
     }
 }

@@ -16,15 +16,20 @@ import javax.persistence.*;
 @Entity
 @DynamicInsert
 @DynamicUpdate
-@Table(name = "join")
-@SequenceGenerator(name = "join_seq_GENERATOR",sequenceName = "join_seq", allocationSize = 1, initialValue = 1)
+@Table(name = "cjoin")
+@SequenceGenerator(name = "cjoin_seq_GENERATOR",sequenceName = "cjoin_seq", allocationSize = 1, initialValue = 1)
 public class JoinEntity {
-    @Id
-    @GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "join_seq_GENERATOR")
+
+
     @Column
     String nik;
+    @GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "cjoin_seq_GENERATOR")
+    @Id
     @Column
     long id;
     @Column
+    String userid;
+    @Column
     String pw;
+
 }

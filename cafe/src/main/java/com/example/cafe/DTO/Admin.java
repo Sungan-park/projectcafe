@@ -9,10 +9,11 @@ import lombok.*;
 @Data
 public class Admin {
     Long id;
+    String userid;
     String pw;
 
     public AdminEntity toAdminEntity(){
-        return new AdminEntity(id,pw);
+        return new AdminEntity(id, userid, pw);
     }
 
 }

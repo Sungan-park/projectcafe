@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+
+<html xmlns:th="http://www.thymeleaf.org">
+<div th:replace="header::menu"></div>
+<body>
+<div class="cinput">
+  <form action="cinput" method="post" enctype="multipart/form-data">
+    카페 이름<input type="text" name="cname"><br>
+    지역
+    <input type="radio" name="carea" value="용인">용인
+    <input type="radio" name="carea" value="수원">수원
+    <input type="radio" name="carea" value="안양">안양
+    <input type="radio" name="carea" value="인천">인천
+    <br>
+    타입
+    <input type="radio" name="ctype" value="베이커리맛집">베이커리맛집
+    <input type="radio" name="ctype" value="뷰맛집">뷰맛집
+    <input type="radio" name="ctype" value="커피맛집">커피맛집
+    <br>
+    필터
+    <input type="checkbox" name="cfilter" value="노키즈존">노키즈존
+    <input type="checkbox" name="cfilter" value="주차가능">주차가능
+    <input type="checkbox" name="cfilter" value="애견동반가능">애견동반가능
+    <br>
+    메뉴<textarea name="cmenu" cols="10" rows="4"></textarea><br>
+    소개<textarea name="ccon" cols="10" rows="4"></textarea><br>
+    사진1<input type="file" name="cphoto1"><br>
+    사진2<input type="file" name="cphoto2"><br>
+    사진3<input type="file" name="cphoto3"><br>
+    <input type="submit" value="등록하기">
+    <input type="reset" value="취소">
+  </form>
+</div>
+</body>
+
+</html>
