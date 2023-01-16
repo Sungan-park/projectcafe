@@ -27,6 +27,11 @@ header h2 {font-size: 1.2rem; color: #d6d6d6;}
     color:#fff;
  }
 
+ .log{
+    padding: 1vh 1vw;
+ }
+
  .log a{
      color:#fff;
+     margin-left:5px;
   }

@@ -3,14 +3,13 @@
 <html xmlns:th="http://www.thymeleaf.org">
 <div th:replace="header::menu"></div>
 <body>
-g]ㅎㅎㅎㅎㅎ
     <div class="wrap">
         <div class="search_area">
             <form th:action="@{search}" method="post">
                 <section>
                     <span><i class="fas fa-search"></i></span>
                 </section>
-                <input type="text" name="searchKeyword">
+                <input type="text" name="keyword" placeholder="카페명을 검색해주세요.">
                 <button type="submit">검색</button>
             </form>
         </div>

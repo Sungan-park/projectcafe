@@ -31,6 +31,14 @@ public class CafeController {
     public String home() {
         return "main";
     }
+
+    /*main_search*/
+    @GetMapping("/search")
+    public String search(){
+
+        return "/cafe/cafesearchlist";
+    }
+
     /*회원가입*/
     @GetMapping("/signUp")
     public String signUp(Model model) {
