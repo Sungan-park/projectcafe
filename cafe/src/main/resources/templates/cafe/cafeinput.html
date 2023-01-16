@@ -4,7 +4,7 @@
 <div th:replace="header::menu"></div>
 <body>
 <div class="cinput">
-  <form action="cinput" method="post" enctype="multipart/form-data">
+  <form th:action="@{/cinput}" method="post" enctype="multipart/form-data">
     카페 이름<input type="text" name="cname"><br>
     지역
     <input type="radio" name="carea" value="용인">용인

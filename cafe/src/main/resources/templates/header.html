@@ -19,24 +19,40 @@
             </button>
             <a class="navbar-brand" href="main">WebSiteName</a>
         </div>
-        <div class="col p-4" style="text-align: right; vertical-align:center;">
-            <aa style="color: white;">
-                <a sec:authorize="isAnonymous()" th:href="@{/login}">
-                    <span class="glyphicon glyphicon-log-in">로그인</span>
-                </a>
-                <a sec:authorize="isAnonymous()" th:href="@{/signUp}">회원가입</a>
+        <div class="collapse navbar-collapse" id="myNavbar">
+            <ul class="nav navbar-nav">
+                <li class="active"><a href="main">Home</a></li>
+                <li class="dropdown">
+                    <a class="dropdown-toggle" data-toggle="dropdown" href="#">Page 1 <span class="caret"></span></a>
+                    <ul class="dropdown-menu">
+                        <li><a href="#">Page 1-1</a></li>
+                        <li><a href="#">Page 1-2</a></li>
+                        <li><a href="#">Page 1-3</a></li>
+                    </ul>
+                </li>
+                <li><a href="input">입력</a></li>
+                <li><a href="out">출력</a></li>
+            </ul>
+            <div class="col p-4" style="text-align: right; vertical-align:center;">
+                <aa style="color: white;">
+                    <a sec:authorize="isAnonymous()" th:href="@{/login}">
+                        <span class="glyphicon glyphicon-log-in">로그인</span>
+                    </a>
+                    <a sec:authorize="isAnonymous()" th:href="@{/signUp}">회원가입</a>
 
-                <aaa th:if="${#httpServletRequest.remoteUser != null }">
-                    <a th:inline="text">반가워요, [[${#httpServletRequest.remoteUser}]] 님!</a>
+                    <aaa th:if="${#httpServletRequest.remoteUser != null }">
+                        <a th:inline="text">반가워요, [[${#httpServletRequest.remoteUser}]] 님!</a>
 
-                    <a sec:authorize="isAuthenticated()" th:href="@{/logout}">로그아웃</a>
+                        <a sec:authorize="isAuthenticated()" th:href="@{/logout}">로그아웃</a>
 
-                    <a sec:authorize="hasRole('ROLE_MEMBER')" th:href="@{/info}">내정보</a>
-                    <a sec:authorize="hasRole('ROLE_ADMIN')" th:href="@{/admin}">어드민</a>
+                        <a sec:authorize="hasRole('ROLE_MEMBER')" th:href="@{/info}">내정보</a>
+                        <a sec:authorize="hasRole('ROLE_ADMIN')" th:href="@{/admin}">어드민</a>
 
-                </aaa>
-            </aa>
+                    </aaa>
+                </aa>
+            </div>
         </div>
+
 
 </nav>
 

@@ -6,6 +6,7 @@ import com.example.cafe.Entity.CafeEntity;
 import com.example.cafe.Service.*;
 import lombok.AllArgsConstructor;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.data.domain.Page;
 import org.springframework.http.HttpStatus;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -18,6 +19,7 @@ import javax.servlet.http.HttpServletRequest;
 import javax.validation.Valid;
 import java.io.File;
 import java.io.IOException;
+import java.util.ArrayList;
 
 @Controller
 @AllArgsConstructor
@@ -66,12 +68,17 @@ public class CafeController {
         MultipartFile mf = msr.getFile("cphoto1");
         MultipartFile mf2= msr.getFile("cphoto2");
         MultipartFile mf3 = msr.getFile("cphoto3");
-        String path ="C:/springboot/projectcafe-master/cafe/src/main/resources/static/image";
+        String path ="C:/springboot/projectcafe/cafe/src/main/resources/static/image";
         String pic = mf.getOriginalFilename();
         String pic2 = mf2.getOriginalFilename();
         String pic3 = mf3.getOriginalFilename();
         String uploadpath = path + pic;
+        String uploadpath2 = path + pic2;
+        String uploadpath3 = path + pic3;
         mf.transferTo(new File(uploadpath));
+        mf2.transferTo(new File(uploadpath2));
+        mf3.transferTo(new File(uploadpath3));
+
         cafe.setCphoto1(pic);
         cafe.setCphoto2(pic2);
         cafe.setCphoto3(pic3);
@@ -79,7 +86,16 @@ public class CafeController {
 
         cafeService.cafesave(cafeEntity);
 
-        return "redirect:gocinput";
+        return "main";
     }
-
+    /*카페출력*/
+    @GetMapping("/out")
+    public String out(Model model, @RequestParam(required = false,defaultValue ="0", value = "page") int page){
+        Page<CafeEntity> listPage = cafeService.list(page);
+        int totalPage = listPage.getTotalPages();
+        model.addAttribute("list",listPage.getContent());
+        model.addAttribute("totalPage",totalPage);
+        ArrayList<CafeEntity> list = cafeService.out();
+        return "/cafe/cafeout";
+    }
 }

@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+
+<html xmlns:th="http://www.thymeleaf.org">
+<div th:replace="header::menu"></div>
+
+<body>
+
+<table border="1" align="center" width="400" style="text-align:center">
+  <tr><th>카페 이름</th><th>지역</th><th>타입</th><th>필터</th><th>메뉴</th><th>소개</th><th>메인사진</th><th>서브사진1</th><th>서브사진2</th></tr>
+  <tr th:each="list : ${list}">
+    <td th:text="${list.cname}"></td>
+    <td th:text="${list.carea}"></td>
+    <td th:text="${list.ctype}"></td>
+    <td th:text="${list.cfilter}"></td>
+    <td th:text="${list.cmenu}"></td>
+    <td th:text="${list.cintro}"></td>
+    <td>
+      <img th:src="@{/image/{list.cphoto1}}" width="200" height="200">
+    </td>
+    <td th:text="${list.cphoto2}"></td>
+    <td th:text="${list.cphoto3}"></td>
+  </tr>
+  <tr>
+    <td colspan="20" align="center">
+      <ul>
+        <li th:each="page : ${#numbers.sequence(0, totalPage - 1)}">
+          <a th:href="@{out(page=${pageStat.index})}" th:text="${pageStat.index + 1}"></a>
+        </li>
+      </ul>
+    </td>
+  </tr>
+</table>
+</body>
+
+</html>
