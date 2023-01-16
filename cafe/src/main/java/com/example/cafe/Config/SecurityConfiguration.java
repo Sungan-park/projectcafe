@@ -37,7 +37,7 @@
                     .antMatchers(
                             "/css/**",
                             "/js/**",
-                            "/images/**",
+                            "/image/**",
                             "/webjars/**",
                             "/favicon.*",
                             "/*/icon-*"

@@ -1,0 +1,28 @@
+* {margin: 0; padding: 0; box-sizing: border-box; list-style: none; text-decoration: none; font-family: 'Poppins', sans-serif;}
+body {width: 100vw; max-width: 100%; background: #44424a; overflow: hidden;}
+header {position: relative; width: 100vw; height: 4rem; padding: 0.5rem; display: flex; justify-content: space-between; align-items: center; background: #111111;}
+header .logo {display: flex; align-items: center; padding: 1vh 1vw;}
+header .nav_links {display: flex;}
+header .nav_links li {position: relative; padding: 0.7vw; margin: 0 0.7vw;}
+header .nav_links li a {display: flex; align-items: center; flex-direction: column; color: #888888; font-weight: 500;}
+header .nav_links li s span {font-size: 0.9rem; letter-spacing: 1px; margin-top: 0.2rem;}
+header .bars {display: none; position: relative; width: 20px; height: 3px; background: #888888; border-radius: 2px; margin-right: 10px; cursor: pointer;}
+header .bars::before,
+header .bars::after {content: ''; position: absolute; left: 0; width: 20px; height: 3px; background: #888888; border-radius: 2px;}
+header .bars::before {top: 7px;}
+header .bars::after {bottom: 7px;}
+header h2 {font-size: 1.2rem; color: #d6d6d6;}
+section {display: flex; align-items: center;}
+section span {color: #888888;}
+section span i {font-size: 1.2rem; margin: 0 1.2vw;}
+section img {width: 2rem; height: 2rem; object-fit: cover; border-radius: 50%; margin: 0 0.7rem;}
+
+@media (max-width: 768px) {
+    header .logo {margin-right: 50px;}
+    header .bars {display: block; transition: 0.5s;}
+    header .bars.is-active {width: 35px; transform: rotate(90deg); transform-origin: right; transform: translateY(15px) rotate(45deg);}
+    header nav {position: fixed; z-index: 3;}
+    header .nav_links {opacity: 0; position: fixed; left: 0; top: 4rem; width: 100%; height: 100vh; flex-direction: column; background: #111111; padding-top: 1rem; pointer-events: none; transition: 0.5s;}
+    header .nav_links li {margin: 1.2vw 0;}
+    header .nav_links.open {opacity: 1; pointer-events: all;}
+}
