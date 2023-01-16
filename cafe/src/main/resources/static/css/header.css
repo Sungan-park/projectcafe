@@ -26,6 +26,7 @@ section img {width: 2rem; height: 2rem; object-fit: cover; border-radius: 50%; m
     header .nav_links li {margin: 1.2vw 0;}
     header .nav_links.open {opacity: 1; pointer-events: all;}
 }
+
 .logo a{
     color:#fff;
  }
