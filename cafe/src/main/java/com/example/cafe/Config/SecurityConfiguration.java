@@ -37,10 +37,8 @@
                     .antMatchers(
                             "/css/**",
                             "/js/**",
-                            "/image/**",
-                            "/webjars/**",
-                            "/favicon.*",
-                            "/*/icon-*"
+                            "/image/**"
+
                     ).permitAll().anyRequest().authenticated() // 그 외 모든 리소스를 의미하며 인증 필요
                     .and()
                     .formLogin()

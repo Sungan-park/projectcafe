@@ -33,11 +33,11 @@
 <header>
     <div class="logo">
         <div class="bars"></div>
-        <h2>Coderider</h2>
+        <h2><a href="main">Cafe</a></h2>
     </div>
     <nav>
         <ul class="nav_links">
-            <li><a href="#"><i class="fas fa-home"></i><span>Home</span></a></li>
+            <li><a href="out"><i class="fas fa-home"></i><span>out</span></a></li>
             <li><a href="#"><i class="fas fa-file-alt"></i><span>Projects</span></a></li>
             <li><a href="#"><i class="fas fa-folder-open"></i><span>Groups</span></a></li>
             <li><a href="#"><i class="fas fa-comment-dots"></i><span>Dialogs</span></a></li>
@@ -45,7 +45,7 @@
         </ul>
     </nav>
 
-            <div class="col p-4" style="text-align: right; vertical-align:center;">
+            <div class="log" style="text-align: right; vertical-align:center;">
                 <aa style="color: white;">
                     <a sec:authorize="isAnonymous()" th:href="@{/login}">
                         <span class="glyphicon glyphicon-log-in">로그인</span>

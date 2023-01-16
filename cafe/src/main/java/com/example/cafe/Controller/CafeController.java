@@ -68,7 +68,7 @@ public class CafeController {
         MultipartFile mf = msr.getFile("cphoto1");
         MultipartFile mf2= msr.getFile("cphoto2");
         MultipartFile mf3 = msr.getFile("cphoto3");
-        String path ="C:/springboot/projectcafe/cafe/src/main/resources/static/image";
+        String path ="C:/springboot/projectcafe/cafe/src/main/resources/static/image/";
         String pic = mf.getOriginalFilename();
         String pic2 = mf2.getOriginalFilename();
         String pic3 = mf3.getOriginalFilename();

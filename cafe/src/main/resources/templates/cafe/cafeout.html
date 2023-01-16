@@ -15,10 +15,14 @@
     <td th:text="${list.cmenu}"></td>
     <td th:text="${list.cintro}"></td>
     <td>
-      <img th:src="@{/image/{list.cphoto1}}" width="200" height="200">
+      <img th:src="@{/image/}+${list.cphoto1}" width="200" height="200">
     </td>
-    <td th:text="${list.cphoto2}"></td>
-    <td th:text="${list.cphoto3}"></td>
+    <td>
+      <img th:src="@{/image/}+${list.cphoto2}" width="200" height="200">
+    </td>
+    <td>
+      <img th:src="@{/image/}+${list.cphoto3}" width="200" height="200">
+    </td>
   </tr>
   <tr>
     <td colspan="20" align="center">
