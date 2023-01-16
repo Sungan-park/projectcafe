@@ -12,10 +12,6 @@ header .bars::after {content: ''; position: absolute; left: 0; width: 20px; heig
 header .bars::before {top: 7px;}
 header .bars::after {bottom: 7px;}
 header h2 {font-size: 1.2rem; color: #d6d6d6;}
-section {display: flex; align-items: center;}
-section span {color: #888888;}
-section span i {font-size: 1.2rem; margin: 0 1.2vw;}
-section img {width: 2rem; height: 2rem; object-fit: cover; border-radius: 50%; margin: 0 0.7rem;}
 
 @media (max-width: 768px) {
     header .logo {margin-right: 50px;}
