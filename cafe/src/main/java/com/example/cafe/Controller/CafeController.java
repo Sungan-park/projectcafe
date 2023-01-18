@@ -30,7 +30,9 @@ import java.util.ArrayList;
 @AllArgsConstructor
 public class CafeController {
 
+    CafeService cafeService;
     private final UserService userService;
+
     /*main*/
     @GetMapping({ "/", "/main" })
     public String home() {
@@ -95,8 +97,6 @@ public class CafeController {
     public String gocinput(){
         return "/cafe/cafeinput";
     }
-
-    CafeService cafeService;
 
     @PostMapping("/cinput")
     @ResponseStatus(HttpStatus.CREATED)
