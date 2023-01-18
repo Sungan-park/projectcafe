@@ -3,8 +3,19 @@
 <html xmlns:th="http://www.thymeleaf.org">
 <div th:replace="header::menu"></div>
 
-<body>
+<style>
+  .layout {
 
+      width : 100%;
+      margin : 0 auto;
+      margin-top : 20px;
+      height: 800px;
+
+  }
+
+</style>
+<body>
+<div class="layout">
 <table border="1" align="center" width="400" style="text-align:center">
   <tr><th>카페 이름</th><th>지역</th><th>타입</th><th>필터</th><th>메뉴</th><th>소개</th><th>메인사진</th><th>서브사진1</th><th>서브사진2</th></tr>
   <tr th:each="list : ${list}">
@@ -24,7 +35,8 @@
       <img th:src="@{/image/}+${list.cphoto3}" width="200" height="200">
     </td>
   </tr>
-  <tr>
+
+<!--  <tr>
     <td colspan="20" align="center">
       <ul>
         <li th:each="page : ${#numbers.sequence(0, totalPage - 1)}">
@@ -32,8 +44,13 @@
         </li>
       </ul>
     </td>
-  </tr>
+  </tr>-->
 </table>
+  <th:block th:each="page : ${#numbers.sequence(startPage, endPage)}">
+    <a th:if="${page != nowPage}" th:href="@{/cafe/out(page = ${page - 1})}" th:text="${page}"></a>
+    <strong th:if="${page == nowPage}" th:text="${page}" style="color : red"></strong>
+  </th:block>
+</div>
 </body>
 
 </html>
