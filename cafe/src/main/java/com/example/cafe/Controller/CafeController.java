@@ -36,6 +36,7 @@ public class CafeController {
     /*main*/
     @GetMapping({ "/", "/main" })
     public String home() {
+
         return "main";
     }
 
@@ -71,6 +72,39 @@ public class CafeController {
 
         return "/cafe/cafesearchlist";
     }
+
+    /*main_typelist*/
+    @GetMapping("/typelist")
+    public String typelist(Model model ,@PageableDefault(page = 0, size = 10, sort = "id", direction = Sort.Direction.DESC) Pageable pageable,
+                           String ctype){
+        Page<CafeEntity> list =null;
+
+        if(ctype.equals("사진맛집")){
+            list = cafeService.typelist(ctype, pageable);
+        }
+        else if(ctype.equals("베이커리맛집")){
+            list = cafeService.typelist(ctype, pageable);
+        }
+        else if(ctype.equals("뷰맛집")){
+            list = cafeService.typelist(ctype, pageable);
+        }
+        else{
+            list = cafeService.typelist(ctype, pageable);
+        }
+
+        /*Page<CafeEntity> list = cafeService.typelist(ctype, pageable);*/
+        int nowPage = list.getPageable().getPageNumber() + 1;
+        int startPage =  Math.max(nowPage - 4, 1);
+        int endPage = Math.min(nowPage+ + 5, list.getTotalPages());
+
+
+        model.addAttribute("list", list);
+        model.addAttribute("nowPage",nowPage);
+        model.addAttribute("startPage", startPage);
+        model.addAttribute("endPage", endPage);
+        return "/cafe/cafeout";
+    }
+
 
     /*회원가입*/
     @GetMapping("/signUp")

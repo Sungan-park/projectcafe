@@ -36,9 +36,10 @@ public class CafeServiceIMP implements CafeService{
         return cafeRepository.findByCnameContaining(keyword, pageable);
     }
 
-
-
-
+    @Override
+    public Page<CafeEntity> typelist(String ctype, Pageable pageable) {
+        return cafeRepository.findByCtypeEquals(ctype, pageable);
+    }
 
 
 }

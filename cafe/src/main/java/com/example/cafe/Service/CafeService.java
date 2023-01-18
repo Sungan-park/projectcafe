@@ -1,12 +1,8 @@
 package com.example.cafe.Service;
 
-import com.example.cafe.DTO.Cafe;
 import com.example.cafe.Entity.CafeEntity;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
-
-import java.util.ArrayList;
-import java.util.List;
 
 public interface CafeService {
 
@@ -18,10 +14,7 @@ public interface CafeService {
 
     Page<CafeEntity> cafeSearchList(String keyword, Pageable pageable);
 
-
-
-
-
+    Page<CafeEntity> typelist(String ctype, Pageable pageable);
 
 
 }
