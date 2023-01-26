@@ -53,12 +53,12 @@
                     <a sec:authorize="isAnonymous()" th:href="@{/signUp}">회원가입</a>
 
                     <aaa th:if="${#httpServletRequest.remoteUser != null }">
-                        <a th:inline="text">반가워요, [[${#httpServletRequest.remoteUser}]] 님!</a>
+                        <a th:inline="text">반가워요, [[${#httpServletRequest.remoteUser}]]</a> 님!</a>
 
                         <a sec:authorize="isAuthenticated()" th:href="@{/logout}">로그아웃</a>
 
-                        <a sec:authorize="hasRole('ROLE_MEMBER')" th:href="@{/info}">내정보</a>
-                        <a sec:authorize="hasRole('ROLE_ADMIN')" th:href="@{/admin}">어드민</a>
+                        <a sec:authorize="hasRole('USER')" th:href="@{/mypage}">내정보</a>
+                        <a sec:authorize="hasRole('BOARD')" th:href="@{/admin}">어드민</a>
 
                     </aaa>
                 </aa>

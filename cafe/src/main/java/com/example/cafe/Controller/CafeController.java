@@ -185,4 +185,12 @@ public class CafeController {
 
         return "/cafe/cafedetail";
     }
+    @GetMapping("/mypage")
+    public String mypage(){
+        return "/mypage";
+    }
+    @GetMapping("/mymodify")
+    public String mymodify(){
+        return "/mymodify";
+    }
 }
