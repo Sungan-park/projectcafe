@@ -16,11 +16,11 @@ import javax.persistence.*;
 @Entity
 @DynamicInsert
 @DynamicUpdate
-@Table(name = "review")
-@SequenceGenerator(name = "review_seq_GENERATOR",sequenceName = "review_seq", allocationSize = 1, initialValue = 1)
+@Table(name = "creview")
+@SequenceGenerator(name = "creview_seq_GENERATOR",sequenceName = "creview_seq", allocationSize = 1, initialValue = 1)
 public class ReviewEntity {
     @Id
-    @GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "review_seq_GENERATOR")
+    @GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "creview_seq_GENERATOR")
     @Column
     Long id;
     @Column

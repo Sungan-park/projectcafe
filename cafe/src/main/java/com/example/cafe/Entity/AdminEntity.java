@@ -16,13 +16,15 @@ import javax.persistence.*;
 @Entity
 @DynamicInsert
 @DynamicUpdate
-@Table(name = "admin")
-@SequenceGenerator(name = "admin_seq_GENERATOR",sequenceName = "admin_seq", allocationSize = 1, initialValue = 1)
+@Table(name = "cadmin")
+@SequenceGenerator(name = "cadmin_seq_GENERATOR",sequenceName = "cadmin_seq", allocationSize = 1, initialValue = 1)
 public class AdminEntity {
     @Id
-    @GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "admin_seq_GENERATOR")
+    @GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "cadmin_seq_GENERATOR")
     @Column
     Long id;
+    @Column
+    String userid;
     @Column
     String pw;
 }

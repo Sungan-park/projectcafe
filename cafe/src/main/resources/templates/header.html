@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+
+<html xmlns:th="http://www.thymeleaf.org" th:fragment="menu">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<link rel="stylesheet" href="/css/header.css">
+<link href="https://fonts.googleapis.com/css?family=Poppins:wght@200,300,400,500,600,700,800,900&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+
+<script>
+        const menu = document.querySelector(".bars");
+        let menuState = false;
+        menu.addEventListener("click", showMenu)
+        function showMenu(){
+            if (!menuState){
+                menu.classList.add("is-active");
+                document.querySelector(".nav_links").classList.add("open");
+                menuState = true;
+            }
+            else {
+                menu.classList.remove("is-active");
+                document.querySelector(".nav_links").classList.remove("open");
+                menuState = false;
+            }
+        }
+    </script>
+
+<meta charset="utf-8">
+<body>
+
+<header>
+    <div class="logo">
+        <div class="bars"></div>
+        <h2><a href="/main">Cafe</a></h2>
+    </div>
+    <nav>
+        <ul class="nav_links">
+            <li><a href="/out"><i class="fas fa-home"></i><span>CafeList</span></a></li>
+            <li><a href="#"><i class="fas fa-file-alt"></i><span>Projects</span></a></li>
+            <li><a href="#"><i class="fas fa-folder-open"></i><span>Groups</span></a></li>
+            <li><a href="#"><i class="fas fa-comment-dots"></i><span>Dialogs</span></a></li>
+            <li><a href="#"><i class="fas fa-map-marked-alt"></i><span>Contact</span></a></li>
+        </ul>
+    </nav>
+
+            <div class="log" style="text-align: right; vertical-align:center;">
+                <aa style="color: white;">
+                    <a sec:authorize="isAnonymous()" th:href="@{/login}">
+                        <span class="glyphicon glyphicon-log-in">로그인</span>
+                    </a>
+                    <a sec:authorize="isAnonymous()" th:href="@{/signUp}">회원가입</a>
+
+                    <aaa th:if="${#httpServletRequest.remoteUser != null }">
+                        <a th:inline="text">반가워요, [[${#httpServletRequest.remoteUser}]] 님!</a>
+
+                        <a sec:authorize="isAuthenticated()" th:href="@{/logout}">로그아웃</a>
+
+                        <a sec:authorize="hasRole('ROLE_MEMBER')" th:href="@{/info}">내정보</a>
+                        <a sec:authorize="hasRole('ROLE_ADMIN')" th:href="@{/admin}">어드민</a>
+
+                    </aaa>
+                </aa>
+            </div>
+    </header>
+</body>
+
+</html>

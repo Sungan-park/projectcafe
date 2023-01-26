@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+
+<html xmlns:th="http://www.thymeleaf.org">
+<div th:replace="header::menu"></div>
+
+<style>
+  .layout {
+
+      width : 100%;
+      margin : 0 auto;
+      margin-top : 20px;
+      height: 800px;
+
+  }
+
+</style>
+<body>
+<div class="layout">
+    <table border="1" align="center" width="400" style="text-align:center">
+        <tr><th>카페 이름</th><th>지역</th><th>타입</th><th>필터</th><th>메뉴</th><th>소개</th><th>메인사진</th><th>서브사진1</th><th>서브사진2</th></tr>
+        <tr th:each="list : ${list}">
+            <td th:text="${list.cname}"></td>
+            <td th:text="${list.carea}"></td>
+            <td th:text="${list.ctype}"></td>
+            <td th:text="${list.cfilter}"></td>
+            <td th:text="${list.cmenu}"></td>
+            <td th:text="${list.cintro}"></td>
+            <td>
+                <img th:src="@{/image/}+${list.cphoto1}" width="200" height="200">
+            </td>
+            <td>
+                <img th:src="@{/image/}+${list.cphoto2}" width="200" height="200">
+            </td>
+            <td>
+                <img th:src="@{/image/}+${list.cphoto3}" width="200" height="200">
+            </td>
+        </tr>
+
+    </table>
+    <th:block th:each="page : ${#numbers.sequence(startPage, endPage)}">
+        <a th:if="${page != nowPage}" th:href="@{/search(page = ${page - 1}, keyword=${param.keyword})}" th:text="${page}"></a>
+        <strong th:if="${page == nowPage}" th:text="${page}" style="color : red"></strong>
+    </th:block>
+</div>
+</body>
+
+</html>

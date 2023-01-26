@@ -1,0 +1,13 @@
+* {margin: 0; padding: 0; box-sizing: border-box; list-style: none; text-decoration: none; font-family: 'Poppins', sans-serif;}
+/*body {width: 100vw; max-width: 100%; background: #fff; overflow: hidden;}*/
+section {display: flex; align-items: center;}
+section span i {font-size: 1.2rem; margin: 0 1.2vw;}
+section img {width: 2rem; height: 2rem; object-fit: cover; border-radius: 50%; margin: 0 0.7rem;}
+
+.wrap{
+
+}
+
+search_area input{
+    display:;
+}

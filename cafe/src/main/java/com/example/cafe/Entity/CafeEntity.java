@@ -16,17 +16,22 @@ import javax.persistence.*;
 @Entity
 @DynamicInsert
 @DynamicUpdate
-@Table(name = "cafe")
-@SequenceGenerator(name = "cafe_seq_GENERATOR",sequenceName = "cafe_seq", allocationSize = 1, initialValue = 1)
+@Table(name = "ccafe")
+@SequenceGenerator(name = "ccafe_seq_GENERATOR",sequenceName = "ccafe_seq", allocationSize = 1, initialValue = 1)
 public class CafeEntity {
     @Id
-    @GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "cafe_seq_GENERATOR")
+    @GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "ccafe_seq_GENERATOR")
     @Column
     Long id;
     @Column
     String cname;
     @Column
-    String cphoto;
+    String cphoto1;
+    @Column
+    String cphoto2;
+    @Column
+    String cphoto3;
+
     @Column
     String cintro;
     @Column
