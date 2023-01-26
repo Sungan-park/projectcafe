@@ -1,0 +1,13 @@
+<!DOCTYPE html>
+
+<html xmlns:th="http://www.thymeleaf.org">
+<div th:replace="header::menu"></div>
+<body>
+<ul>
+    <li><a href="#">찜목록</a></li>
+    <li><a href="#">내가 쓴 리뷰</a></li>
+    <li><a href="mymodify">회원정보 수정</a></li>
+    [[${#httpServletRequest.remoteUser}]]
+</ul>
+</body>
+</html>
