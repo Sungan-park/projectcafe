@@ -4,17 +4,20 @@
 <div th:replace="header::menu"></div>
 
 <body>
-
+<div class="layout2">
+  <p>
+    <img th:src="@{/image/}+${cafe.cphoto1}" width="200" height="200">
+    <img th:src="@{/image/}+${cafe.cphoto2}" width="200" height="200">
+    <img th:src="@{/image/}+${cafe.cphoto3}" width="200" height="200">
+  </p>
   <p th:text="${cafe.cname}"> </p>
+  <p th:text="${cafe.cintro}"> </p>
+  <p th:text="${cafe.carea}" ></p>
+  <p th:text="${cafe.ctype}"></p>
+  <p th:text="${cafe.cfilter}"></p>
+  <p th:text="${cafe.cmenu}"></p>
 
-
-
-
- <!-- <th:block th:each="page : ${#numbers.sequence(startPage, endPage)}">
-    <a th:if="${page != nowPage}" th:href="@{/out(page = ${page - 1})}" th:text="${page}"></a>
-    <strong th:if="${page == nowPage}" th:text="${page}" style="color : red"></strong>
-  </th:block>-->
-
+</div>
 </body>
 
 </html>

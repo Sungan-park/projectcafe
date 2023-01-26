@@ -115,7 +115,7 @@ public class CafeController {
     @PostMapping("/signUp")
     public String signUp(@ModelAttribute("userDto") UserDto userDto) {
         userService.insert(userDto);
-        return "redirect:/join_login/login";
+        return "redirect:/login";
     }
 
 
@@ -184,5 +184,9 @@ public class CafeController {
         model.addAttribute("cafe",cafeService.cafedetail(id));
 
         return "/cafe/cafedetail";
+    }
+    @GetMapping("/HELLO")
+    public String text(){
+        return "HELLO";
     }
 }
