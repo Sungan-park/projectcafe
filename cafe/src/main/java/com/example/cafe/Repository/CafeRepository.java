@@ -14,5 +14,5 @@ public interface CafeRepository extends JpaRepository<CafeEntity, Long> {
 
     Page<CafeEntity> findByCnameContaining(String keyword, Pageable pageable);
 
-        Page<CafeEntity> findByCtypeEquals(String ctype, Pageable pageable);
+    Page<CafeEntity> findByCtypeEquals(String ctype, Pageable pageable);
 }

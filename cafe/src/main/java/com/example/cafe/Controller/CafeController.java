@@ -177,4 +177,12 @@ public class CafeController {
 
         return "/cafe/cafeout";
     }
+
+    /*카페상세페이지*/
+    @GetMapping("/cafedetail")
+    public String cafeDetail(Model model, Long id){
+        model.addAttribute("cafe",cafeService.cafedetail(id));
+
+        return "/cafe/cafedetail";
+    }
 }
