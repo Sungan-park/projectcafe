@@ -41,5 +41,10 @@ public class CafeServiceIMP implements CafeService{
         return cafeRepository.findByCtypeEquals(ctype, pageable);
     }
 
+    @Override
+    public CafeEntity cafedetail(Long id) {
+        return cafeRepository.findById(id).get();
+    }
+
 
 }
