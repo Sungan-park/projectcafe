@@ -5,11 +5,12 @@
 <body>
 <form th:action="@{/cinput}" method="post" enctype="multipart/form-data">
   회원 정보 수정<br>
-  아이디<input type="text" name="cname"><br>
+  아이디<input type="text" name="cname" th:value="${#httpServletRequest.remoteUser}" readonly><br>
   비밀번호 <input type="text" name="cname"><br>
   이름 <input type="text" name="cname"><br>
   <input type="submit" value="정보수정">
   <input type="button" value="취소" th:onclick="|location.href='/main'|">
+
 </form>
 </body>
 </html>
