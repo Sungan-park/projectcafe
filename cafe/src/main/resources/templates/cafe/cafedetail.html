@@ -42,7 +42,19 @@
   </div>
   <input type="submit" value="댓글달기">
 </form>
+  <table>
+    <tr th:each="list : ${list}">
+      <td th:text="${list.rscore}">
+      <td th:text="${list.rdate}">
+      <td th:text="${list.rcontent}">
 
+
+    </tr>
+  </table>
+<th:block th:each="page : ${#numbers.sequence(startPage, endPage)}">
+  <a th:if="${page != nowPage}" th:href="@{/review(page = ${page - 1})}" th:text="${page}"></a>
+  <strong th:if="${page == nowPage}" th:text="${page}" style="color : red"></strong>
+</th:block>
 </body>
 
 </html>

@@ -184,9 +184,17 @@ public class CafeController {
 
     /*카페상세페이지&리뷰*/
     @GetMapping("/cafedetail")
-    public String cafeDetail(Model model, Long id) {
+    public String cafeDetail(Model model, Long id, @PageableDefault(page = 0, size = 10, sort = "id", direction = Sort.Direction.DESC) Pageable pageable) {
         model.addAttribute("cafe", cafeService.cafedetail(id));
+        Page<ReviewEntity> list = reviewService.reviewlist(pageable);
+        int nowPage = list.getPageable().getPageNumber() + 1;
+        int startPage = Math.max(nowPage - 4, 1);
+        int endPage = Math.min(nowPage + +5, list.getTotalPages());
 
+        model.addAttribute("list", list);
+        model.addAttribute("nowPage", nowPage);
+        model.addAttribute("startPage", startPage);
+        model.addAttribute("endPage", endPage);
         return "/cafe/cafedetail";
     }
 
@@ -204,8 +212,7 @@ public class CafeController {
         review.setRphoto(pic);
         ReviewEntity reviewEntity = review.toReviewEntity();
         reviewService.reviewsave(reviewEntity);
-
-        return "/main";
+        return "redirect:/main";
     }
 
 
