@@ -4,15 +4,19 @@ import com.example.cafe.DTO.Cafe;
 import com.example.cafe.DTO.UserDto;
 import com.example.cafe.Entity.CafeEntity;
 import com.example.cafe.Service.*;
+import com.example.cafe.model.User;
 import lombok.AllArgsConstructor;
-import org.springframework.beans.factory.annotation.Autowired;
 
+import org.springframework.boot.Banner;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
 import org.springframework.data.domain.Sort;
 
 import org.springframework.data.web.PageableDefault;
 import org.springframework.http.HttpStatus;
+import org.springframework.security.core.Authentication;
+import org.springframework.security.core.annotation.AuthenticationPrincipal;
+import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.validation.BindingResult;
@@ -24,14 +28,13 @@ import javax.servlet.http.HttpServletRequest;
 import javax.validation.Valid;
 import java.io.File;
 import java.io.IOException;
-import java.util.ArrayList;
 
 @Controller
 @AllArgsConstructor
 public class CafeController {
 
     CafeService cafeService;
-    private final UserService userService;
+    private final UserServiceIMP userService;
 
     /*main*/
     @GetMapping({ "/", "/main" })
@@ -185,12 +188,20 @@ public class CafeController {
 
         return "/cafe/cafedetail";
     }
+
+    /*내정보*/
     @GetMapping("/mypage")
     public String mypage(){
+
         return "/mypage";
     }
+
     @GetMapping("/mymodify")
-    public String mymodify(){
+    public String mymodify(Model model){
+        Authentication auth = SecurityContextHolder.getContext().getAuthentication();
+        String name = auth.getName(); //get logged in username
+        model.addAttribute("id",name);
+
         return "/mymodify";
     }
 }

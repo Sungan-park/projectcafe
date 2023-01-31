@@ -17,6 +17,15 @@
   <p th:text="${cafe.cfilter}"></p>
   <p th:text="${cafe.cmenu}"></p>
 
+  댓글<br>
+  <form th:action="@{/review}" method="post" enctype="multipart/form-data">
+    <input type="file" multiple="multiple" name="rphoto1"><br>
+    <input type="text" name="rdate"><br>
+    <textarea name="rcontent"></textarea><br>
+    <input type="text" name="rscore"><br>
+    <input type="text" name="rlike">
+    <input type="submit" value="댓글달기">
+  </form>
 </div>
 </body>
 
