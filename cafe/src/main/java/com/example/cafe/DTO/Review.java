@@ -14,9 +14,11 @@ public class Review {
     String rdate;
     String rcontent;
     String rscore;
-    String rlike;
+
 
     public ReviewEntity toReviewEntity(){
-        return new ReviewEntity(id,rphoto,rdate,rcontent,rscore,rlike);
+        return new ReviewEntity(id,rphoto,rdate,rcontent,rscore);
     }
+
+
 }

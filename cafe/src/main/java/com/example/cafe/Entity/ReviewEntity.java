@@ -31,6 +31,5 @@ public class ReviewEntity {
     String rcontent;
     @Column
     String rscore;
-    @Column
-    String rlike;
+
 }

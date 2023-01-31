@@ -2,7 +2,7 @@
 
 <html xmlns:th="http://www.thymeleaf.org">
 <div th:replace="header::menu"></div>
-
+<link href="/css/cafedetail.css" rel="stylesheet"/>
 <body>
 <div class="layout2">
   <p>
@@ -16,17 +16,33 @@
   <p th:text="${cafe.ctype}"></p>
   <p th:text="${cafe.cfilter}"></p>
   <p th:text="${cafe.cmenu}"></p>
-
-  댓글<br>
-  <form th:action="@{/review}" method="post" enctype="multipart/form-data">
-    <input type="file" multiple="multiple" name="rphoto1"><br>
-    <input type="text" name="rdate"><br>
-    <textarea name="rcontent"></textarea><br>
-    <input type="text" name="rscore"><br>
-    <input type="text" name="rlike">
-    <input type="submit" value="댓글달기">
-  </form>
 </div>
+<br>
+리뷰달기<br>
+
+<form class="mb-3" name="myform" id="myform" th:action="@{/review}" method="post" enctype="multipart/form-data">
+  <fieldset>
+    <span class="text-bold">별점을 선택해주세요</span>
+    <input type="radio" name="rscore" value="5" id="rate1"><label
+          for="rate1">★</label>
+    <input type="radio" name="rscore" value="4" id="rate2"><label
+          for="rate2">★</label>
+    <input type="radio" name="rscore" value="3" id="rate3"><label
+          for="rate3">★</label>
+    <input type="radio" name="rscore" value="2" id="rate4"><label
+          for="rate4">★</label>
+    <input type="radio" name="rscore" value="1" id="rate5"><label
+          for="rate5">★</label>
+  </fieldset><br>
+
+  <input type="file" multiple="multiple" name="rphoto"><br>
+  <div>
+      <textarea class="col-auto form-control" type="text" id="reviewContents" name="rcontent"
+                placeholder="리뷰를 작성해주세요"></textarea>
+  </div>
+  <input type="submit" value="댓글달기">
+</form>
+
 </body>
 
 </html>
